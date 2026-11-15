@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login</h2>
+
+    <form id="loginForm">
+        <label>Username:</label>
+        <input type="text" id="username">
+
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" id="password">
+
+        <br><br>
+
+        <button type="submit" id="loginButton">
+            Login
+        </button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>document.getElementById("loginForm")
+            .addEventListener("submit", function(e) {
+                e.preventDefault();
+
+                const username =
+                    document.getElementById("username").value;
+                const password =
+                    document.getElementById("password").value;
+
+                const accounts = {
+                    user1: "password1",
+                    user2: "password2",
+                    user3: "password3"
+                };
+
+                const success =
+                    accounts[username] === password;
+
+                document.getElementById("result")
+                    .textContent = success
+                    ? "Login successful"
+                    : "Invalid credentials";
+            });</script>
+</body>
+</html>
